@@ -1,9 +1,9 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "ingesoft";
-    private $username = "estudiante";
-    private $password = "estudiante1234";
+    private $db_name = "microsoft5a";
+    private $username = "microsoft5a";
+    private $password = "microsoft5a";
     private $conn;
 
     public function getConnection() {
