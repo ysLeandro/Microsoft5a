@@ -1,0 +1,86 @@
+/* estilos.css */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, #232526, #414345); /* Degradado gris oscuro */
+    font-family: 'Poppins', 'Arial', sans-serif;
+    padding: 20px;
+    color: #e0e0e0; /* Gris clarito */
+    min-height: 100vh;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: #f0f0f0; /* Blanco suave */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Botones / enlaces */
+a {
+    display: inline-block;
+    background-color: #5c6bc0; /* Azul lavanda */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    background-color: #3949ab; /* Azul más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background-color: #ffffff; /* Tabla blanca */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Celdas */
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #cccccc; /* Rayas gris claro */
+    color: #333; /* Texto oscuro en la tabla para mejor lectura */
+}
+
+/* Cabecera de tabla */
+th {
+    background-color: #5c6bc0; /* Azul lavanda */
+    color: #ffffff;
+    font-size: 1em;
+}
+
+/* Filas alternadas */
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Blanco grisáceo muy suave */
+}
+
+/* Hover fila */
+tr:hover {
+    background-color: #e0e0e0; /* Gris clarito al pasar el mouse */
+    color: #000; /* Texto más oscuro al pasar el mouse */
+}
+
+/* Estilo para acciones */
+.acciones a {
+    margin: 0 5px;
+}

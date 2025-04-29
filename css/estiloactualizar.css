@@ -1,0 +1,68 @@
+/* estiloactualizar.css */
+body {
+    background: linear-gradient(to right, #232526, #414345);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+}
+
+.formulario-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: bold;
+}
+
+input[type="text"], select {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #5f6abf; /* Morado como en la tabla */
+    box-shadow: 0 0 5px #5f6abf;
+}
+
+.btn-guardar {
+    background-color: #5f6abf; /* Botón morado */
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-guardar:hover {
+    background-color: #4b57a3; /* Un morado más oscuro al pasar el mouse */
+}
