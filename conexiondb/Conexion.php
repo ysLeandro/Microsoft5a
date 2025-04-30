@@ -2,8 +2,8 @@
 class Conexion {
     private static $host = "localhost";
     private static $dbname = "personas_db"; // NUEVO nombre de la base de datos
-    private static $username = "root";
-    private static $password = "";
+    private static $username = "microsoft5a2";
+    private static $password = "microsoft5a2";
     private static $conn = null;
 
     public static function conectar() {
