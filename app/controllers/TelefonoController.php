@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // En TelefonoController.php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/eysphp/config/database.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/eysphp/app/models/Telefono.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/config/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/app/models/Telefono.php';
 
 class TelefonoController {
     private $telefono;
@@ -126,6 +126,6 @@ if (isset($_GET['action'])) {
             break;
     }
 } else {
-    echo "No se especificó ninguna acción.";
+ //  echo "No se especificó ninguna acción.";
 }
 ?>
