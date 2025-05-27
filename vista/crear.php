@@ -11,6 +11,10 @@ $telefonoController = new TelefonoController();
 $estadoCivilController = new EstadoCivilController();
 $sexoController = new SexoController();
 
+// Inicializar variables para evitar warnings
+$sexo = '';
+$estado_civil = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
     $direcciones = $_POST['direccion'];
@@ -40,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sexoController->actualizar($id_persona, $sexo);
         $estadoCivilController->actualizar($id_persona, $estado_civil);
 
+        // Redirigir a la lista
         header("Location: index.php");
         exit();
     } catch (Exception $e) {
@@ -75,12 +80,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="telefono[]"><br>
 
             <label>Estado Civil:</label>
-            <input type="text" name="estado_civil" placeholder="Ej: Soltero, Unión Libre, etc." required><br>
+            <input type="text" name="estado_civil" value="<?php echo htmlspecialchars($estado_civil); ?>" placeholder="Ej: Soltero, Unión Libre, etc." required><br>
 
+            <label>Sexo:</label>
             <select name="sexo" required>
-            <option value="Masculino" <?php echo ($sexo == 'Masculino') ? 'selected' : ''; ?>>Masculino</option>
-            <option value="Femenino" <?php echo ($sexo == 'Femenino') ? 'selected' : ''; ?>>Femenino</option>
-            </select>
+                <option value="Masculino" <?php echo ($sexo === 'Masculino') ? 'selected' : ''; ?>>Masculino</option>
+                <option value="Femenino" <?php echo ($sexo === 'Femenino') ? 'selected' : ''; ?>>Femenino</option>
+            </select><br>
 
             <input type="submit" value="Guardar" class="btn-guardar">
         </form>
