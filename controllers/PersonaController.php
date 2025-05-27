@@ -8,23 +8,23 @@ class PersonaController {
         $this->model = new PersonaModel();
     }
 
-    public function obtenerTodasLasPersonas() {
+    public function obtenerTodas() {
         return $this->model->obtenerPersonas();
     }
 
-    public function obtenerPersona($id) {
+    public function obtener($id) {
         return $this->model->obtenerPersonaPorId($id);
     }
 
-    public function agregarPersona($nombre, $direccion, $estado_civil, $sexo, $telefono) {
-        $this->model->agregarPersona($nombre, $direccion, $estado_civil, $sexo, $telefono);
+    public function agregar($nombre) {
+        return $this->model->agregarPersona($nombre); // devuelve id_persona
     }
 
-    public function actualizarPersona($id, $nombre, $direccion, $estado_civil, $sexo, $telefono) {
-        $this->model->actualizarPersona($id, $nombre, $direccion, $estado_civil, $sexo, $telefono);
+    public function actualizar($id, $nombre) {
+        $this->model->actualizarPersona($id, $nombre);
     }
 
-    public function eliminarPersona($id) {
+    public function eliminar($id) {
         $this->model->eliminarPersona($id);
     }
 }
