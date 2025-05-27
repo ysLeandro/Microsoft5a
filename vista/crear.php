@@ -1,17 +1,45 @@
 <?php
 require_once '../controllers/PersonaController.php';
+require_once '../controllers/DireccionController.php';
+require_once '../controllers/TelefonoController.php';
+require_once '../controllers/EstadoCivilController.php';
+require_once '../controllers/SexoController.php';
 
-$controller = new PersonaController();
+$personaController = new PersonaController();
+$direccionController = new DireccionController();
+$telefonoController = new TelefonoController();
+$estadoCivilController = new EstadoCivilController();
+$sexoController = new SexoController();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
-    $direccion = $_POST['direccion'];
+    $direcciones = $_POST['direccion'];
+    $telefonos = $_POST['telefono'];
     $estado_civil = $_POST['estado_civil'];
     $sexo = $_POST['sexo'];
-    $telefono = $_POST['telefono'];
 
     try {
-        $controller->agregarPersona($nombre, $direccion, $estado_civil, $sexo, $telefono);
+        // 1. Insertar persona
+        $id_persona = $personaController->agregar($nombre);
+
+        // 2. Insertar direcciones
+        foreach ($direcciones as $dir) {
+            if (!empty($dir)) {
+                $direccionController->agregar($id_persona, $dir);
+            }
+        }
+
+        // 3. Insertar teléfonos
+        foreach ($telefonos as $tel) {
+            if (!empty($tel)) {
+                $telefonoController->agregar($id_persona, $tel);
+            }
+        }
+
+        // 4. Insertar sexo y estado civil
+        $sexoController->actualizar($id_persona, $sexo);
+        $estadoCivilController->actualizar($id_persona, $estado_civil);
+
         header("Location: index.php");
         exit();
     } catch (Exception $e) {
@@ -20,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- HTML igual que antes -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,25 +60,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Crear Nueva Persona</h1>
         <form method="POST">
             <label>Nombre:</label>
-            <input type="text" name="nombre" required>
+            <input type="text" name="nombre" required><br>
 
-            <label>Dirección:</label>
-            <input type="text" name="direccion" required>
+            <label>Dirección 1:</label>
+            <input type="text" name="direccion[]"><br>
+
+            <label>Dirección 2:</label>
+            <input type="text" name="direccion[]"><br>
+
+            <label>Teléfono 1:</label>
+            <input type="text" name="telefono[]"><br>
+
+            <label>Teléfono 2:</label>
+            <input type="text" name="telefono[]"><br>
 
             <label>Estado Civil:</label>
-            <select name="estado_civil" required>
-                <option value="Soltero">Soltero</option>
-                <option value="Casado">Casado</option>
-            </select>
+            <input type="text" name="estado_civil" placeholder="Ej: Soltero, Unión Libre, etc." required><br>
 
-            <label>Sexo:</label>
             <select name="sexo" required>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
+            <option value="Masculino" <?php echo ($sexo == 'Masculino') ? 'selected' : ''; ?>>Masculino</option>
+            <option value="Femenino" <?php echo ($sexo == 'Femenino') ? 'selected' : ''; ?>>Femenino</option>
             </select>
-
-            <label>Teléfono:</label>
-            <input type="text" name="telefono" required>
 
             <input type="submit" value="Guardar" class="btn-guardar">
         </form>

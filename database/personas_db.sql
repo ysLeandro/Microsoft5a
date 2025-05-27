@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-04-2025 a las 02:47:35
+-- Tiempo de generación: 27-05-2025 a las 23:59:04
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,7 +38,8 @@ CREATE TABLE `direccion` (
 --
 
 INSERT INTO `direccion` (`id_direccion`, `id_persona`, `direccion`) VALUES
-(1, 1, 'la tolita');
+(17, 5, 'Tolita1'),
+(18, 5, 'Tolita2');
 
 -- --------------------------------------------------------
 
@@ -49,7 +50,7 @@ INSERT INTO `direccion` (`id_direccion`, `id_persona`, `direccion`) VALUES
 CREATE TABLE `estadocivil` (
   `id_estadocivil` int(11) NOT NULL,
   `id_persona` int(11) NOT NULL,
-  `estado_civil` enum('Soltero','Casado') NOT NULL
+  `estado_civil` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -57,7 +58,11 @@ CREATE TABLE `estadocivil` (
 --
 
 INSERT INTO `estadocivil` (`id_estadocivil`, `id_persona`, `estado_civil`) VALUES
-(1, 1, 'Soltero');
+(3, 5, 'Soltero'),
+(4, 5, 'Soltero'),
+(5, 5, 'Soltero'),
+(6, 5, 'Soltero'),
+(7, 5, 'Soltero');
 
 -- --------------------------------------------------------
 
@@ -75,7 +80,7 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`id_persona`, `nombre`) VALUES
-(1, 'thiago');
+(5, 'Thiago');
 
 -- --------------------------------------------------------
 
@@ -94,7 +99,11 @@ CREATE TABLE `sexo` (
 --
 
 INSERT INTO `sexo` (`id_sexo`, `id_persona`, `sexo`) VALUES
-(1, 1, 'Masculino');
+(3, 5, 'Masculino'),
+(4, 5, 'Masculino'),
+(5, 5, 'Masculino'),
+(6, 5, 'Masculino'),
+(7, 5, 'Masculino');
 
 -- --------------------------------------------------------
 
@@ -113,7 +122,8 @@ CREATE TABLE `telefono` (
 --
 
 INSERT INTO `telefono` (`id_telefono`, `id_persona`, `telefono`) VALUES
-(1, 1, '0997803725');
+(17, 5, '0979887888'),
+(18, 5, '0979887889');
 
 --
 -- Índices para tablas volcadas
@@ -161,31 +171,31 @@ ALTER TABLE `telefono`
 -- AUTO_INCREMENT de la tabla `direccion`
 --
 ALTER TABLE `direccion`
-  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `estadocivil`
 --
 ALTER TABLE `estadocivil`
-  MODIFY `id_estadocivil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estadocivil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `sexo`
 --
 ALTER TABLE `sexo`
-  MODIFY `id_sexo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sexo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `telefono`
 --
 ALTER TABLE `telefono`
-  MODIFY `id_telefono` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_telefono` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restricciones para tablas volcadas

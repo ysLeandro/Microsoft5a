@@ -10,7 +10,7 @@ if (!isset($_GET['id'])) {
 $id_persona = $_GET['id'];
 
 try {
-    $controller->eliminarPersona($id_persona);
+    $controller->eliminar($id_persona); // método correcto según tu nuevo controlador
     header("Location: index.php");
     exit();
 } catch (Exception $e) {
